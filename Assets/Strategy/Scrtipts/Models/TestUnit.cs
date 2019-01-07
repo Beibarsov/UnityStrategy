@@ -17,8 +17,20 @@ public class TestUnit : BaseSceneModel
 		 GameObject.Destroy(this.gameObject);
 	}
 
-    // Start is called before the first frame update
-    void Start()
+	public void WeaponReady()
+	{
+		Debug.Log("Оружие готово");
+	}
+
+	public void WeaponNotReady()
+	{
+		Debug.Log("Оружие не готово");
+	}
+
+
+
+	// Start is called before the first frame update
+	void Start()
     {
         
     }
