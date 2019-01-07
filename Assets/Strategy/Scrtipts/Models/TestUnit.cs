@@ -17,14 +17,14 @@ public class TestUnit : BaseSceneModel
 		 GameObject.Destroy(this.gameObject);
 	}
 
-	public void WeaponReady()
+	public void Select()
 	{
-		Debug.Log("Оружие готово");
+		Debug.Log("Выбран этот юнит");
 	}
 
-	public void WeaponNotReady()
+	public void UnSelect()
 	{
-		Debug.Log("Оружие не готово");
+		Debug.Log("Отмена выбора этого юнита");
 	}
 
 

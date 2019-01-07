@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class BaseController : MonoBehaviour
 {
-	public bool WeaponIsEnabled { get; private set; }
+	public bool IsSelected { get; private set; }
 
 	private void Awake()
 	{
-		WeaponIsEnabled = true;
+		IsSelected = false;
 	}
 
-	public virtual void WeaponOn()
+	public virtual void Select()
 	{
-		WeaponIsEnabled = true;
+		IsSelected = true;
 	}
 
-	public virtual void WeaponOff()
+	public virtual void UnSelect()
 	{
-		WeaponIsEnabled = false;
+		IsSelected = false;
 	}
 
 }

@@ -12,23 +12,24 @@ public class TestUnitController : BaseController
 		_model = FindObjectOfType<TestUnit>();
 	}
 
-	public override void WeaponOn()
+	public override void Select()
 	{
-		base.WeaponOn();
-		_model.WeaponReady();
+		//if (Camera.main.ScreenPointToRay)
+		base.Select();
+		_model.Select();
 	}
 
-	public override void WeaponOff()
+	public override void UnSelect()
 	{
-		base.WeaponOff();
-		_model.WeaponNotReady();
+		base.UnSelect();
+		_model.UnSelect();
 
 	}
 
 	public void Switch()
 	{
-		if (WeaponIsEnabled) WeaponOff();
-		else WeaponOn();
+		if (IsSelected) Select();
+		else UnSelect();
 	} 
 
 }
