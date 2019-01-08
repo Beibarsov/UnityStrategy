@@ -8,7 +8,9 @@ public class Main : MonoBehaviour
 
 
 	public InputController InputController { get; private set; }
-	public TestUnitController TestUnitController { get; private set; }
+	//public TestUnitController TestUnitController { get; private set; }
+	public SelectContoller SelectContoller { get; private set; }
+	public SelectView SelectView { get; private set; }
 
 	private void Awake()
 	{
@@ -19,7 +21,9 @@ public class Main : MonoBehaviour
 	private void Start()
 	{
 		InputController = gameObject.AddComponent<InputController>();
-		TestUnitController = gameObject.AddComponent<TestUnitController>();
+		//TestUnitController = gameObject.AddComponent<TestUnitController>();
+		SelectContoller = gameObject.AddComponent<SelectContoller>();
+		SelectView = gameObject.AddComponent<SelectView>();
 	}
 
 

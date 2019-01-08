@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class TestUnitController : BaseController
 {
@@ -17,6 +18,8 @@ public class TestUnitController : BaseController
 		//if (Camera.main.ScreenPointToRay)
 		base.Select();
 		_model.Select();
+
+
 	}
 
 	public override void UnSelect()
@@ -24,12 +27,14 @@ public class TestUnitController : BaseController
 		base.UnSelect();
 		_model.UnSelect();
 
+
 	}
 
 	public void Switch()
 	{
-		if (IsSelected) Select();
+		if (!IsSelected) Select();
 		else UnSelect();
+		Debug.Log(this.gameObject.name + " " + IsSelected.ToString());
 	} 
 
 }

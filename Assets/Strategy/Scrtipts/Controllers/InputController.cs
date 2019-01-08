@@ -24,7 +24,8 @@ public class InputController : BaseController
 				if (hit.collider.GetComponent<TestUnit>())
 				{
 					TestUnit unit = hit.collider.GetComponent<TestUnit>();
-					unit.Select();
+					Main.Instance.SelectContoller.Switch(unit);
+					//unit.Switch();
 				}
 			}
 
