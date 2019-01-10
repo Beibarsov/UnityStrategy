@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.UI;
+using UnityEngine.AI;
 
 public class TestUnit : BaseSceneModel, IObservable
 {
@@ -10,8 +11,13 @@ public class TestUnit : BaseSceneModel, IObservable
 	private int _hp;
 
 	public bool IsSelected { get; set; }
+
+
+	NavMeshAgent navMesh;
+
 	//Список наблюдателей
 	public List<IObserver> observers;
+
 
 
 	//Событие выбора, на нем завязана view
@@ -24,6 +30,7 @@ public class TestUnit : BaseSceneModel, IObservable
 		IsSelected = false;
 		//Для наблюдателя, инициализация списка наблюдателей
 		observers = new List<IObserver>();
+		navMesh = GetComponent<NavMeshAgent>();
 	}
 	public void Die()
 	{
@@ -60,8 +67,9 @@ public class TestUnit : BaseSceneModel, IObservable
     void Update()
     {
 		if (_hp < 10) Die();
-
 	}
+
+
 
 	public void Switch()
 	{
@@ -100,4 +108,10 @@ public class TestUnit : BaseSceneModel, IObservable
 			observer.UpdateSwtich(IsSelected, this.gameObject);
 		}
 	}
+
+	public void Move(Vector3 dest)
+	{
+		navMesh.destination = dest;
+	}
+
 }

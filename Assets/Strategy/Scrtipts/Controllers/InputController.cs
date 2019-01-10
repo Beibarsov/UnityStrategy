@@ -32,6 +32,7 @@ public class InputController : BaseController
 
 
 		}
+		//Команда на движение/атаку и т.д.
 		if (Input.GetButtonDown("Fire2"))
 		{
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -40,6 +41,16 @@ public class InputController : BaseController
 			if (Physics.Raycast(ray, out hit, Mathf.Infinity))
 			{
 				Debug.Log(hit.point);
+				if (hit.collider.name == "Plane")
+				{
+					Debug.Log("Это пол");
+					
+					foreach (TestUnit unit in Main.Instance.SelectContoller.WhoSelected())
+					{
+						if (unit.IsSelected) Main.Instance.MoveUnitController.MoveOrder(unit, hit.point);
+					}
+				}
+
 				if (hit.collider.GetComponent<TestUnit>())
 				{
 					TestUnit unit = hit.collider.GetComponent<TestUnit>();

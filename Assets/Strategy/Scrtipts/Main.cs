@@ -12,6 +12,7 @@ public class Main : MonoBehaviour
 	public SelectContoller SelectContoller { get; private set; }
 	public SelectView SelectView { get; private set; }
 	public DamageConroller DamageConroller { get; private set; }
+	public MoveUnitController MoveUnitController { get; private set; }
 
 	private void Awake()
 	{
@@ -26,6 +27,7 @@ public class Main : MonoBehaviour
 		SelectContoller = gameObject.AddComponent<SelectContoller>();
 		SelectView = gameObject.AddComponent<SelectView>();
 		DamageConroller = gameObject.AddComponent<DamageConroller>();
+		MoveUnitController = gameObject.AddComponent<MoveUnitController>();
 	}
 
 
