@@ -26,7 +26,13 @@ public class SelectView : MonoBehaviour, IObserver
 		obj.GetComponent<TestUnit>().IsSelected = state;
 		obj.GetComponentInChildren<Canvas>().enabled = state;
 		obj.GetComponentInChildren<CanvasScaler>().enabled = state;
-		Debug.Log("Наблюдатель отработал");
+		//obj.GetComponentInChildren<Text>().text = "HP: " + _
+
+	}
+
+	public void UpdateHP(int hp, TestUnit unit)
+	{
+		unit.GetComponentInChildren<Text>().text = "HP: " + hp;
 	}
 }
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 public class TestUnit : BaseSceneModel, IObservable
 {
@@ -11,25 +12,34 @@ public class TestUnit : BaseSceneModel, IObservable
 	public bool IsSelected { get; set; }
 	//Список наблюдателей
 	public List<IObserver> observers;
+
+
 	//Событие выбора, на нем завязана view
 	public Action<bool> Selected;
 
 
 	private void Awake()
 	{
+		_hp = 100;
 		IsSelected = false;
 		//Для наблюдателя, инициализация списка наблюдателей
 		observers = new List<IObserver>();
 	}
-
-	public TestUnit()
-	{
-		_hp = 100;
-	}
-
 	public void Die()
 	{
-		 GameObject.Destroy(this.gameObject);
+		 Destroy(this.gameObject);
+	}
+
+	public void TakeDamage(int damage)
+	{
+		_hp -= damage;
+		//this.GetComponentInChildren<Text>().text = _hp.ToString();
+
+	}
+
+	public int HPCounter()
+	{
+		return _hp;
 	}
 
 	public void Select()
@@ -46,21 +56,12 @@ public class TestUnit : BaseSceneModel, IObservable
 		if (Selected != null) Selected.Invoke(false);
 	}
 
-
-
-	// Start is called before the first frame update
-	void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
 		if (_hp < 10) Die();
 
 	}
-
 
 	public void Switch()
 	{
@@ -70,9 +71,6 @@ public class TestUnit : BaseSceneModel, IObservable
 		NotifyObservers();
 		Debug.Log(observers.Count);
 	}
-
-
-
 	
 
 	/// <summary>

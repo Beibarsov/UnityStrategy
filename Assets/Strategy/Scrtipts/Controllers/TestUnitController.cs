@@ -34,7 +34,7 @@ public class TestUnitController : BaseController
 	{
 		if (!IsSelected) Select();
 		else UnSelect();
-		Debug.Log(this.gameObject.name + " " + IsSelected.ToString());
+
 	} 
 
 }

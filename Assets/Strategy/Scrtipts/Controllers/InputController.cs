@@ -29,11 +29,28 @@ public class InputController : BaseController
 				}
 			}
 
-			
+
+
 		}
+		if (Input.GetButtonDown("Fire2"))
+		{
+			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+			RaycastHit hit;
+
+			if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+			{
+				Debug.Log(hit.point);
+				if (hit.collider.GetComponent<TestUnit>())
+				{
+					TestUnit unit = hit.collider.GetComponent<TestUnit>();
+					Main.Instance.DamageConroller.Damage(unit);
+					//unit.Switch();
+				}
+			}
 
 
 
-		//Main.Instance.TestUnitController.Select();
+			//Main.Instance.TestUnitController.Select();
+		}
 	}
 }
