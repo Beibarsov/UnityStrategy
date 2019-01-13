@@ -13,6 +13,7 @@ public class Main : MonoBehaviour
 	public SelectView SelectView { get; private set; }
 	public DamageConroller DamageConroller { get; private set; }
 	public MoveUnitController MoveUnitController { get; private set; }
+	public CameraController CameraController { get; private set; }
 
 	private void Awake()
 	{
@@ -28,6 +29,7 @@ public class Main : MonoBehaviour
 		SelectView = gameObject.AddComponent<SelectView>();
 		DamageConroller = gameObject.AddComponent<DamageConroller>();
 		MoveUnitController = gameObject.AddComponent<MoveUnitController>();
+		CameraController = gameObject.AddComponent<CameraController>();
 	}
 
 

@@ -31,4 +31,16 @@ public class SelectContoller : BaseController
 		return units.ToArray();
 	}
 
+	/// <summary>
+	/// Отменяет выделение у всех юнитов
+	/// </summary>
+	public void CancelSelected()
+	{
+		foreach (TestUnit unit in FindObjectsOfType<TestUnit>())
+		{
+			if (unit.IsSelected) unit.Switch();
+		}
+
+	}
+
 }

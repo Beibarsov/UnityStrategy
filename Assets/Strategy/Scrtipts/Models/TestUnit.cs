@@ -9,6 +9,7 @@ public class TestUnit : BaseSceneModel, IObservable
 {
 	[SerializeField]
 	private int _hp;
+	public string Name;
 
 	public bool IsSelected { get; set; }
 
